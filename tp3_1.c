@@ -43,4 +43,6 @@ int main() {
     }
     printf("El valor máximo ocurrió el mes %d del año %d y fue %d\n", mesMax, anioMax, max);
     printf("El valor mínimo ocurrió el mes %d del año %d y fue %d\n", mesMin, anioMin, min);
+
+    /*Leo Caballero*/
 }
