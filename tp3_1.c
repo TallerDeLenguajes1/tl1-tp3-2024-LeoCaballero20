@@ -11,8 +11,11 @@ int main() {
         *(puntMatriz + i) = 10000 + rand()%40001;
     }
 
-    for (int i=0; i<60; i++) {
-        printf("%d\n",*(puntMatriz + i));
+    for (int i=0; i<5; i++) {
+        printf("\nAño número %d:\n", i+1);
+        for (int j=0; j<12; j++) {
+            printf("Mes %d: %d\n", j+1, *(puntMatriz + (i*12+j)));
+        }
     }
     
     for (int i=0; i<5; i++) {
@@ -21,11 +24,11 @@ int main() {
             suma += *(puntMatriz+(i*12+j));
         }
         int promedio = suma/12;
-        printf("El promedio del %dº año es %d\n",i+1,promedio);
+        printf("\nEl promedio del %dº año es %d\n",i+1,promedio);
     }
 
-    int max = 30000;
-    int min = 30000;
+    int max = 10000;
+    int min = 50000;
     int anioMax, mesMax, anioMin, mesMin;
     for (int i=0; i<5; i++) {
         for (int j=0; j<12; j++) {
@@ -34,15 +37,13 @@ int main() {
                 anioMax = i+1;
                 mesMax = j+1;
             }
-            else if (*(puntMatriz+(i*12+j))<min){
+            if (*(puntMatriz+(i*12+j))<min){
                 min = *(puntMatriz+(i*12+j));
                 anioMin = i+1;
                 mesMin = j+1;
             }
         }
     }
-    printf("El valor máximo ocurrió el mes %d del año %d y fue %d\n", mesMax, anioMax, max);
+    printf("\nEl valor máximo ocurrió el mes %d del año %d y fue %d\n", mesMax, anioMax, max);
     printf("El valor mínimo ocurrió el mes %d del año %d y fue %d\n", mesMin, anioMin, min);
-
-    /*Leo Caballero*/
 }
