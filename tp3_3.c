@@ -19,6 +19,7 @@
  int main() {
  srand(time(NULL));
  char *Buff; //variable auxiliar
+ char *Buff2;
  char *TiposProductos[]={"Galletas","Snack","Cigarrillos","Caramelos","Bebidas"};
  int cantClientes;
  printf("Ingrese la cantidad de clientes: ");
@@ -27,17 +28,21 @@
  for (int i=0;i<cantClientes;i++) {
    clientes[i].ClienteID = i+1;
    Buff = (char *)malloc(sizeof(char)*100);
+   Buff2 = (char *)malloc(sizeof(char)*100);
    int cantNombres;
    printf("Ingrese la cantidad de nombres del cliente número %d: ", i+1);
    scanf("%d", &cantNombres);
-   char * nombre;
-   for (int c=0;c<cantNombres;c++) {
-    printf("Ingrese el nombre número %d: ", c+1);
-    scanf("%s", &nombre);
-    fflush(stdin);
-    gets(Buff);
-    strcat(Buff,"");
-    }
+   for (int c=0;c<cantNombres;c++) {   
+      printf("Ingrese el nombre número %d: ", c+1);
+      if (c==0) {
+         fflush(stdin);
+         gets(Buff);
+      } else {
+         gets(Buff2);
+         strcat(Buff," ");
+         strcat(Buff,Buff2);
+      }
+   }
    char * nombreCliente = (char *)malloc(sizeof(char)*(strlen(Buff)+1));
    strcpy(nombreCliente,Buff);
    clientes[i].NombreCliente = nombreCliente;
